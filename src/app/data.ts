@@ -242,7 +242,7 @@ export const latestPosts = [
     subCategory: "Web Development",
     detailsDesc:
       "Sorting algorithms are algorithms designed to arrange elements in a particular order (ascending or descending). Efficient sorting is crucial for improving the performance of other algorithms.",
-      settingUpHeading1: "Bubble Sort:",
+    settingUpHeading1: "Bubble Sort:",
     settingUpHeading2: "Quick Sort:",
     settingUpHeading3: "Merge Sort:",
     setContent1: `A simple, but inefficient sorting method that repeatedly swaps adjacent elements if they are in the wrong order.`,
@@ -287,5 +287,4 @@ export const latestPosts = [
     miniProjectIdea:
       "Build and deploy a full-stack app with Docker and Kubernetes, where users can interact with a simple blog application, with backend and frontend running in different containers.",
   },
-
 ];
