@@ -5,12 +5,33 @@ import CommentSection from "@/app/components/commentSection";
 import { latestPosts } from "@/app/data";
 import Image from "next/image";
 
+type Post = {
+  id: number;
+  title: string;
+  img: string;
+  name: string;
+  detailsDesc: string;
+  settingUpHeading1: string;
+  setContent1: string;
+  settingUpHeading2: string;
+  setContent2: string;
+  settingUpHeading3: string;
+  setContent3: string;
+  coreHeading1: string;
+  coreContent1: string;
+  coreHeading2: string;
+  coreContent2: string;
+  coreHeading3: string;
+  coreContent3: string;
+  miniProjectIdea: string;
+};
+
 type Params = {
   details: string[];
 };
 
 const Page = ({ params }: { params: Promise<Params> }) => {
-  const [post, setPost] = useState<any>(null);
+  const [post, setPost] = useState<Post | null>(null);
   const [details, setDetails] = useState<string[] | null>(null);
 
   useEffect(() => {
@@ -24,7 +45,7 @@ const Page = ({ params }: { params: Promise<Params> }) => {
 
   useEffect(() => {
     if (details) {
-      const post = latestPosts.find((item) => item.id === Number(details[0]));
+      const post = latestPosts.find((item) => item.id === Number(details[0])) as Post;
       setPost(post);
     }
   }, [details]);
@@ -33,7 +54,7 @@ const Page = ({ params }: { params: Promise<Params> }) => {
     return <div>Loading...</div>;
   }
 
-  const imageSrc = post.img as string;
+  const imageSrc = post.img;
 
   return (
     <div className="bg-[#242535] md:px-10 text-white md:py-10 px-2 overflow-y-hidden">
