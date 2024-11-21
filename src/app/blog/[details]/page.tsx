@@ -5,7 +5,11 @@ import CommentSection from "@/app/components/commentSection";
 import { latestPosts } from "@/app/data";
 import Image from "next/image";
 
-const Page = ({ params }: { params: Promise<{ details: string[] }> }) => {
+type Params = {
+  details: string[];
+};
+
+const Page = ({ params }: { params: Promise<Params> }) => {
   const [post, setPost] = useState<any>(null);
   const [details, setDetails] = useState<string[] | null>(null);
 
