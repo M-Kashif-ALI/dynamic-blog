@@ -2,6 +2,13 @@ import CommentSection from "@/app/components/commentSection";
 import { latestPosts } from "@/app/data";
 import Image from "next/image";
 
+export async function generateStaticParams() {
+  return latestPosts.map((post) => ({
+    details: [post.id.toString()],
+  }));
+}
+
+
 interface PageProps {
   params: { details: string[] };
 }
@@ -9,7 +16,7 @@ interface PageProps {
 const page = ({ params }: PageProps) => {
   const { details } = params;
   const post = latestPosts.find((item) => item.id === Number(details[0]));
-  const imageSrc = post?.img as string;
+  const imageSrc = post?.img || "";
 
   return (
     <div className="bg-[#242535] md:px-10 text-white md:py-10 px-2 overflow-y-hidden">
