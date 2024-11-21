@@ -1,3 +1,5 @@
+'use client'
+
 import CommentSection from "@/app/components/commentSection";
 import { latestPosts } from "@/app/data";
 import Image from "next/image";
@@ -8,7 +10,8 @@ interface PageProps {
   };
 }
 
-const page = ({ params }: PageProps) => {
+const page = async (props: PageProps) => {
+  const params = await props.params;
   const { details } = params;
   const post = latestPosts.find((item) => item.id === Number(details[0]));
   const imageSrc = post?.img as string;
