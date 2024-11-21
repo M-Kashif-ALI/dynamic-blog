@@ -2,7 +2,11 @@ import CommentSection from "@/app/components/commentSection";
 import { latestPosts } from "@/app/data";
 import Image from "next/image";
 
-const page = ({ params }: { params: { details: string[] } }) => {
+interface PageProps {
+  params: { details: string[] };
+}
+
+const page = ({ params }: PageProps) => {
   const { details } = params;
   const post = latestPosts.find((item) => item.id === Number(details[0]));
   const imageSrc = post?.img as string;
